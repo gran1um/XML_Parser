@@ -1,6 +1,6 @@
 #!/usr/bin/php
 <?php
-$xml_file = "tss_new.xml";
+$xml_file = "tss.xml";
 
 if (file_exists($xml_file)) {
     $xml = simplexml_load_file($xml_file);
@@ -39,10 +39,10 @@ if (file_exists($xml_file)) {
 
         foreach($segment->param as $key=>$param){
 
-                if ($param["name"]=='Описание товара'){
+                if ($param["name"]=='Детальное описание товара'){
                     $description=$param;
                 }
-
+                
                 if ($param['name']!='Артикул' & $param['name']!='Картинки'& $param['name']!='Детальное описание товара'& $param['name']!='Описание товара'){
                     $specifications.="<tr><td>".$param['name']."</td><td>".$param."</td></tr>";
                 }
